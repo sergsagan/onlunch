@@ -1,0 +1,167 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$box-name: 'box';
+$box-x: 115px;
+$box-y: 0px;
+$box-offset-x: -115px;
+$box-offset-y: 0px;
+$box-width: 117px;
+$box-height: 108px;
+$box-total-width: 321px;
+$box-total-height: 271px;
+$box-image: '../img/sprite.png';
+$box: (115px, 0px, -115px, 0px, 117px, 108px, 321px, 271px, '../img/sprite.png', 'box', );
+$call-name: 'call';
+$call-x: 251px;
+$call-y: 105px;
+$call-offset-x: -251px;
+$call-offset-y: -105px;
+$call-width: 15px;
+$call-height: 15px;
+$call-total-width: 321px;
+$call-total-height: 271px;
+$call-image: '../img/sprite.png';
+$call: (251px, 105px, -251px, -105px, 15px, 15px, 321px, 271px, '../img/sprite.png', 'call', );
+$dinner-name: 'dinner';
+$dinner-x: 0px;
+$dinner-y: 0px;
+$dinner-offset-x: 0px;
+$dinner-offset-y: 0px;
+$dinner-width: 115px;
+$dinner-height: 115px;
+$dinner-total-width: 321px;
+$dinner-total-height: 271px;
+$dinner-image: '../img/sprite.png';
+$dinner: (0px, 0px, 0px, 0px, 115px, 115px, 321px, 271px, '../img/sprite.png', 'dinner', );
+$logo-name: 'logo';
+$logo-x: 0px;
+$logo-y: 223px;
+$logo-offset-x: 0px;
+$logo-offset-y: -223px;
+$logo-width: 97px;
+$logo-height: 48px;
+$logo-total-width: 321px;
+$logo-total-height: 271px;
+$logo-image: '../img/sprite.png';
+$logo: (0px, 223px, 0px, -223px, 97px, 48px, 321px, 271px, '../img/sprite.png', 'logo', );
+$medal-name: 'medal';
+$medal-x: 232px;
+$medal-y: 0px;
+$medal-offset-x: -232px;
+$medal-offset-y: 0px;
+$medal-width: 89px;
+$medal-height: 105px;
+$medal-total-width: 321px;
+$medal-total-height: 271px;
+$medal-image: '../img/sprite.png';
+$medal: (232px, 0px, -232px, 0px, 89px, 105px, 321px, 271px, '../img/sprite.png', 'medal', );
+$menu-name: 'menu';
+$menu-x: 0px;
+$menu-y: 115px;
+$menu-offset-x: 0px;
+$menu-offset-y: -115px;
+$menu-width: 101px;
+$menu-height: 108px;
+$menu-total-width: 321px;
+$menu-total-height: 271px;
+$menu-image: '../img/sprite.png';
+$menu: (0px, 115px, 0px, -115px, 101px, 108px, 321px, 271px, '../img/sprite.png', 'menu', );
+$message-name: 'message';
+$message-x: 232px;
+$message-y: 105px;
+$message-offset-x: -232px;
+$message-offset-y: -105px;
+$message-width: 19px;
+$message-height: 15px;
+$message-total-width: 321px;
+$message-total-height: 271px;
+$message-image: '../img/sprite.png';
+$message: (232px, 105px, -232px, -105px, 19px, 15px, 321px, 271px, '../img/sprite.png', 'message', );
+$wallet-name: 'wallet';
+$wallet-x: 101px;
+$wallet-y: 115px;
+$wallet-offset-x: -101px;
+$wallet-offset-y: -115px;
+$wallet-width: 114px;
+$wallet-height: 85px;
+$wallet-total-width: 321px;
+$wallet-total-height: 271px;
+$wallet-image: '../img/sprite.png';
+$wallet: (101px, 115px, -101px, -115px, 114px, 85px, 321px, 271px, '../img/sprite.png', 'wallet', );
+$spritesheet-width: 321px;
+$spritesheet-height: 271px;
+$spritesheet-image: '../img/sprite.png';
+$spritesheet-sprites: ($box, $call, $dinner, $logo, $medal, $menu, $message, $wallet, );
+$spritesheet: (321px, 271px, '../img/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

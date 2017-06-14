@@ -1,0 +1,244 @@
+//header
+
+nav{
+
+  ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 3px 0 rgba(197, 197, 197, 0.1);
+    border: 1px solid rgb(232, 232, 232);
+
+    li{
+      height: 78px;
+      line-height: 78px;
+      border-right: 1px solid rgb(232, 232, 232);
+      text-align: center;
+      background-color: transparent;
+      @include transition(all .5s);
+
+      &:hover{
+        background-color: rgb(207, 40, 50);
+
+        a{
+          color: rgb(255, 255, 255);
+        }
+      }
+
+      &:last-child{
+        border-right:none;
+      }
+
+      a{
+        display: block;
+        color: rgb(37, 40, 45);
+        font-family: $AvenirNextCyr-M;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0 46px;
+        cursor: pointer;
+      }
+
+    }
+
+
+    .active{
+      background-color: rgb(207, 40, 50);
+
+      a{
+        color: rgb(255, 255, 255);
+      }
+    }
+
+    li.logo{
+      padding: 0 15px;
+
+      &.active{
+        background-color: transparent;
+      }
+
+      &:hover{
+        background-color: transparent;
+      }
+      a{
+        display: inline-block;
+        margin-top: 10px;
+        @include sprite($logo);
+      }
+    }
+  }
+}
+
+//top__slider
+
+.top__slider{
+  margin-top: 1px;
+  position: relative;
+
+  .slick-slide {
+    outline: none;
+  }
+
+
+    .slick-dots {
+    position: absolute;
+    bottom: 45px;
+    display: block;
+    width: 100%;
+    max-width: 530px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .slick-dots li {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
+
+  .slick-dots li button:before {
+    font-size: 6px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    content: '';
+    text-align: center;
+    opacity: 1;
+    border: 1px solid rgb(0, 0, 0);
+  }
+  .slick-dots li.slick-active button:before {
+    opacity: 1;
+    background-color: rgb(37, 40, 45);
+  }
+
+  .item-1, .item-2, .item-3{
+    width: 100%;
+    max-width: 1920px;
+    height: 100%;
+    min-height: 400px;
+
+
+    .wrap{
+      position: relative;
+      width: 100%;
+      max-width: 1260px;
+      margin: 0 auto;
+      height: auto;
+      min-height: 400px;
+
+      .left__group{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 530px;
+        height: 100%;
+        min-height: 400px;
+        background-color: rgba(255, 255, 255, 0.3);
+        text-align: center;
+
+        h1{
+          color: rgb(207, 40, 50);
+          font-family: $SanelmaW00;
+          font-size: 110px;
+          font-weight: 400;
+          margin: 0;
+        }
+        .line{
+          max-width: 108px;
+          width: 100%;
+          height: 1px;
+          background-color: rgb(37, 40, 45);
+          margin: -15px auto 20px;
+        }
+        span{
+          display: block;
+          color: rgb(37, 40, 45);
+          font-family: $AvenirNextCyr-M;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+          text-transform: uppercase;
+          margin-bottom: 40px;
+        }
+        .descript{
+          color: rgb(37, 40, 45);
+          font-family: $AvenirNextCyr-L;
+          font-size: 11px;
+          font-weight: 300;
+          line-height: 18px;
+        }
+
+      }
+
+      .right__group{
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 425px;
+        height: 260px;
+        border: 1px solid rgb(0, 0, 0);
+
+        .frame{
+          width: 389px;
+          height: 219px;
+          border: 3px dotted rgb(255, 255, 255);
+          background-color: rgba(255, 255, 255, 0.4);
+
+          .title{
+            display: block;
+            color: rgb(37, 40, 45);
+            font-family: $AvenirNextCyr;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 24px;
+            text-transform: uppercase;
+          }
+          .descr{
+            display: block;
+            color: rgb(37, 40, 45);
+            font-family: $AvenirNextCyr;
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+          }
+        }
+
+      }
+
+      .d{
+        display: block;
+        position: absolute;
+        right: 50px;
+        bottom: 50px;
+        color: rgb(37, 40, 45);
+        font-family: $AvenirNextCyr-L;
+        font-size: 11px;
+        font-weight: 300;
+        line-height: 18px;
+        z-index: 10;
+      }
+    }
+  }
+  .item-1{
+    background: url("../img/slider.png") 50% 0 no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+  .item-2{
+    background: url("../img/slider-2.png") 50% 0 no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+  .item-3{
+    background: url("../img/slider-3.png") 50% 0 no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+}
+
